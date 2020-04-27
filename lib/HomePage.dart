@@ -254,13 +254,19 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.all(10),
                   child: Text('Your Total Score: '+calculateScore().toString(), style: TextStyle(fontSize: 16, color: calculateScore()>=20? Colors.red : Colors.green),)
               ),
-              calculateScore()>=20?
+
+              calculateScore()>=20 ?
               Column(
+
                 children: <Widget>[
                   Container(
                     padding: EdgeInsets.all(10),
-                      child: Text('You should visit the hospital with given link', style: TextStyle(fontSize: 20),)
+
+                    child: Text('You should visit the hospital with given link',  style: TextStyle(fontSize: 20,),),
+
+
                   ),
+
                   GestureDetector(
                     onTap: (){
                       _launchURL(hospital_link);
@@ -271,10 +277,15 @@ class _HomePageState extends State<HomePage> {
                     ),
                   )
                 ],
-              ) : Visibility(visible: false, child: Container(),),
+              ) :
+              Container(
+                  padding: EdgeInsets.all(10),
+                  child: Text('Congratulations! You are doing safe. Stay in Home', style: TextStyle(fontSize: 20), )
+              ),
 
             ],
-          );
+
+      );
 
       },
     ).then((value){
